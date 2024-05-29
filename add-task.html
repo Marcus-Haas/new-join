@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+
+    <link rel="shortcut icon" href="assets/img/join-logo.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="assets/css/add-task.css">
+    <link rel="stylesheet" href="assets/css/add-task-responsive.css">
+    <link rel="stylesheet" href="assets/css/contacts.css">
+
+
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/board.js"></script>
+    <script src="assets/js/addTask.js"></script>
+    <script src="assets/js/addTask-responsive.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/contacts.js"></script>
+    <script src="assets/js/mini_backend.js"></script>
+    <script>setURL('https://marcus-haas.com/smallest_backend_ever');</script>
+
+</head>
+
+<body onload="initAddTask()">
+
+
+    <div class="overflow-addtask">
+        <div w3-include-html="assets/templates/header.html"></div>
+
+        <div w3-include-html="assets/templates/navigation.html"></div>
+
+        <div class="add-task-main">
+
+            <div class="kanban-add-task">Kanban Project Management Tool</div>
+
+            <span class="add-task-headline">Add Task</span>
+
+            <div class="helper">
+                <div class="add-task-leftside">
+                    <div class="add-task-titlebox">
+                        <span class="add-task-text">Title</span>
+                        <input class="add-task-input-style" id="title" type="text" placeholder="Enter a title">
+                        <span class="add-task-warning-text d-none" id="required-title">This field is required</span>
+                    </div>
+                    <div class="add-task-titlebox">
+                        <span class="add-task-text">Description</span>
+                        <textarea class="add-task-textarea" name="" id="description" cols="30" rows="10"
+                            placeholder="Enter a description"></textarea>
+                        <span class="add-task-warning-text d-none" id="required-description">This field is
+                            required</span>
+                    </div>
+                    <div class="add-task-titlebox">
+                        <span class="add-task-text">Category</span>
+                        <div>
+                            <div class="add-task-category-assign" id="category" onclick="openCategoryOptions()">
+                                <div class="add-task-category-assign-details">
+                                    <div class="selected-category-div">
+                                        <span id="selected-category">Select task category</span>
+                                        <div class="add-task-category-color-before" id="selected-category-color"></div>
+                                    </div>
+                                    <img src="assets/img/select-arrow.png">
+                                </div>
+                            </div>
+                            <span class="add-task-warning-text d-none" id="required-category">Please select a
+                                category</span>
+                            <div class="category-assign-input-div d-none" id="category-input">
+                                <input class="category-assign-inputfield" placeholder="New category name"
+                                    id="category-inputfield">
+                                <div class="category-assign-input-rightside">
+                                    <img class="category-assign-input-image" src="assets/img/category-x.png"
+                                        onclick="closeNewCategory()">
+                                    <div class="category-assign-input-vector"></div>
+                                    <img class="category-assign-input-image" src="assets/img/category-check.png"
+                                        onclick="saveNewCategory()">
+                                </div>
+                            </div>
+                            <div class="category-colors-div d-none" id="new-colors-option">
+                                <div class="category-colors first-color" id="selection-circle-0"
+                                    onclick="setNewCategoryColor(0, 'first-color')"></div>
+                                <div class="category-colors second-color" id="selection-circle-1"
+                                    onclick="setNewCategoryColor(1, 'second-color')"></div>
+                                <div class="category-colors third-color" id="selection-circle-2"
+                                    onclick="setNewCategoryColor(2, 'third-color')"></div>
+                                <div class="category-colors fourth-color" id="selection-circle-3"
+                                    onclick="setNewCategoryColor(3, 'fourth-color')"></div>
+                                <div class="category-colors fifth-color" id="selection-circle-4"
+                                    onclick="setNewCategoryColor(4, 'fifth-color')"></div>
+                                <div class="category-colors sixth-color" id="selection-circle-5"
+                                    onclick="setNewCategoryColor(5, 'sixth-color')"></div>
+                            </div>
+                            <div class="add-task-category-assign-options d-none" id="category-options">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-task-titlebox">
+                        <span class="add-task-text">Assigned to</span>
+                        <div>
+                            <div class="add-task-category-assign" id="assign">
+                                <div class="add-task-category-assign-details" id="assign-onclick" onclick="openAssignOptions()">
+                                    <span class="selected-assign" id="selected-assign">Select contacts to assign</span>
+                                    <img src="assets/img/select-arrow.png">
+                                </div>
+                            </div>
+                            <span class="add-task-warning-text d-none" id="required-assign">Please select a
+                                contact</span>
+                            <div class="category-assign-input-div d-none" id="assign-input">
+                                <input class="category-assign-inputfield" placeholder="New contact name"
+                                    id="assign-inputfield">
+                                <div class="category-assign-input-rightside">
+                                    <img class="category-assign-input-image" src="assets/img/category-x.png"
+                                        onclick="closeNewAssign()">
+                                    <div class="category-assign-input-vector"></div>
+                                    <img class="category-assign-input-image" src="assets/img/category-check.png"
+                                        onclick="saveNewAssign()">
+                                </div>
+                            </div>
+                            <div class="add-task-category-assign-options d-none" id="assign-options"></div>
+                            <div class="assign-circle-div" id="assign-circle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-task-vector"></div>
+
+                <div class="add-task-rightside">
+                    <div class="add-task-titlebox">
+                        <span class="add-task-text">Due date</span>
+                        <input class="add-task-input-style" id="date" type="date" onclick="disablePastDates('date')">
+                        <span class="add-task-warning-text d-none" id="required-date">This field is required</span>
+                    </div>
+                    <div class="add-task-titlebox">
+                        <span class="add-task-text">Prio</span>
+                        <div class="add-task-prio-main">
+                            <div class="add-task-priobox" id="prio-urgent" onclick="choosePrioUrgent()">
+                                <span>Urgent</span>
+                                <img class="add-task-priobox-image" id="urgent-img" src="assets/img/urgent.svg">
+                            </div>
+                            <div class="add-task-priobox" id="prio-medium" onclick="choosePrioMedium()">
+                                <span>Medium</span>
+                                <img class="add-task-priobox-image" id="medium-img" src="assets/img/medium.svg">
+                            </div>
+                            <div class="add-task-priobox" id="prio-low" onclick="choosePrioLow()">
+                                <span>Low</span>
+                                <img class="add-task-priobox-image" id="low-img" src="assets/img/low.svg">
+                            </div>
+                        </div>
+                        <span class="add-task-warning-text d-none" id="required-prio">Please select prio</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-task-btns">
+                <button class="add-task-clear-btn">Clear
+                    <span>X</span>
+                </button>
+                <button class="add-task-create-btn" onclick="createTask()">Create Task
+                    <img src="assets/img/overlay-add-check.svg">
+                </button>
+            </div>
+
+
+            <!-------------------------Responsive version--------------------------------------------------->
+
+
+            <div class="addtask-main-rs">
+                <div class="add-task-titlebox">
+                    <span class="add-task-text">Title</span>
+                    <input class="add-task-input-style" id="title-rs" type="text" placeholder="Enter a title">
+                    <span class="add-task-warning-text d-none" id="required-title-rs">This field is required</span>
+                </div>
+                <div class="add-task-titlebox">
+                    <span class="add-task-text">Description</span>
+                    <textarea class="add-task-textarea" name="" id="description-rs" cols="30" rows="10"
+                        placeholder="Enter a description"></textarea>
+                    <span class="add-task-warning-text d-none" id="required-description-rs">This field is
+                        required</span>
+                </div>
+                <div class="add-task-titlebox">
+                    <span class="add-task-text">Prio</span>
+                    <div class="add-task-prio-main">
+                        <div class="add-task-priobox" id="prio-urgent-rs" onclick="choosePrioUrgentResponsive()">
+                            <span>Urgent</span>
+                            <img class="add-task-priobox-image" id="urgent-img-rs" src="assets/img/urgent.svg">
+                        </div>
+                        <div class="add-task-priobox" id="prio-medium-rs" onclick="choosePrioMediumResponsive()">
+                            <span>Medium</span>
+                            <img class="add-task-priobox-image" id="medium-img-rs" src="assets/img/medium.svg">
+                        </div>
+                        <div class="add-task-priobox" id="prio-low-rs" onclick="choosePrioLowResponsive()">
+                            <span>Low</span>
+                            <img class="add-task-priobox-image" id="low-img-rs" src="assets/img/low.svg">
+                        </div>
+                    </div>
+                    <span class="add-task-warning-text d-none" id="required-prio-rs">Please select prio</span>
+                </div>
+                <div class="add-task-titlebox">
+                    <span class="add-task-text">Due date</span>
+                    <input class="add-task-input-style" id="date-rs" type="date" onclick="disablePastDatesResponsive()">
+                    <span class="add-task-warning-text d-none" id="required-date-rs">This field is required</span>
+                </div>
+                <div class="add-task-titlebox">
+                    <span class="add-task-text">Category</span>
+
+                    <div>
+                        <div class="add-task-category-assign" id="category-rs"
+                            onclick="openCategoryOptionsResponsive()">
+                            <div class="add-task-category-assign-details">
+                                <div class="selected-category-div">
+                                    <span id="selected-category-rs">Select task category</span>
+                                    <div class="add-task-category-color-before" id="selected-category-color-rs"></div>
+                                </div>
+                                <img src="assets/img/select-arrow.png">
+                            </div>
+                        </div>
+                        <span class="add-task-warning-text d-none" id="required-category-rs">Please select a
+                            category</span>
+                        <div class="category-assign-input-div d-none" id="category-input-rs">
+                            <input class="category-assign-inputfield" placeholder="New category name"
+                                id="category-inputfield-rs">
+                            <div class="category-assign-input-rightside">
+                                <img class="category-assign-input-image" src="assets/img/category-x.png"
+                                    onclick="closeNewCategoryResponsive()">
+                                <div class="category-assign-input-vector"></div>
+                                <img class="category-assign-input-image" src="assets/img/category-check.png"
+                                    onclick="saveNewCategoryResponsive()">
+                            </div>
+                        </div>
+                        <div class="category-colors-div d-none" id="new-colors-option-rs">
+                            <div class="category-colors first-color" id="selection-circle-rs-0"
+                                onclick="setNewCategoryColorResponsive(0, 'first-color')"></div>
+                            <div class="category-colors second-color" id="selection-circle-rs-1"
+                                onclick="setNewCategoryColorResponsive(1, 'second-color')"></div>
+                            <div class="category-colors third-color" id="selection-circle-rs-2"
+                                onclick="setNewCategoryColorResponsive(2, 'third-color')"></div>
+                            <div class="category-colors fourth-color" id="selection-circle-rs-3"
+                                onclick="setNewCategoryColorResponsive(3, 'fourth-color')"></div>
+                            <div class="category-colors fifth-color" id="selection-circle-rs-4"
+                                onclick="setNewCategoryColorResponsive(4, 'fifth-color')"></div>
+                            <div class="category-colors sixth-color" id="selection-circle-rs-5"
+                                onclick="setNewCategoryColorResponsive(5, 'sixth-color')"></div>
+                        </div>
+                        <div class="add-task-category-assign-options d-none" id="category-options-rs">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="add-task-titlebox">
+                    <span class="add-task-text">Assigned to</span>
+                    <div>
+                        <div class="add-task-category-assign" id="assign-rs">
+                            <div class="add-task-category-assign-details" id="assign-onclick-rs" onclick="openAssignOptionsResponsive()">
+                                <span class="selected-assign" id="selected-assign-rs">Select contacts to assign</span>
+                                <img src="assets/img/select-arrow.png">
+                            </div>
+                        </div>
+                        <span class="add-task-warning-text d-none" id="required-assign-rs">Please select a
+                            contact</span>
+                        <div class="category-assign-input-div d-none" id="assign-input-rs">
+                            <input class="category-assign-inputfield" placeholder="New contact name"
+                                id="assign-inputfield-rs">
+                            <div class="category-assign-input-rightside">
+                                <img class="category-assign-input-image" src="assets/img/category-x.png"
+                                    onclick="closeNewAssignResponsive()">
+                                <div class="category-assign-input-vector"></div>
+                                <img class="category-assign-input-image" src="assets/img/category-check.png"
+                                    onclick="saveNewAssignResponsive()">
+                            </div>
+                        </div>
+                        <div class="add-task-category-assign-options d-none" id="assign-options-rs"></div>
+                        <div class="assign-circle-div" id="assign-circle-rs"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="add-task-create-btn create-rs" onclick="createTaskResponsive()">Create
+            <img src="assets/img/overlay-add-check.svg">
+        </button>
+
+        <div class="task-added-message" id="task-added-message">Task added to board
+            <img src="assets/img/board.svg">
+        </div>
+
+    </div>
+</body>
+
+</html>

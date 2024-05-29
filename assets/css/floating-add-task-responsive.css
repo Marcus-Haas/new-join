@@ -1,0 +1,142 @@
+@media(max-width: 1500px) {
+    .task-added-message-floating {
+        left: 680px;
+    }
+
+    .task-added-message-floating-board {
+        left: 680px;
+    }
+}
+
+@media(max-width: 1400px) {
+    .task-added-message-floating {
+        left: 580px;
+    }
+
+    .task-added-message-floating-board {
+        left: 580px;
+    }
+}
+
+@media(max-width: 1300px) {
+    .task-added-message-floating {
+        left: 500px;
+    }
+
+    .task-added-message-floating-board {
+        left: 500px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .floating-addTask {
+        width: 700px;
+        height: 750px;
+        align-items: unset;
+    }
+
+    .close-floating-task {
+        position: unset;
+        margin-top: 10px;
+    }
+
+    .add-task-btns {
+        margin-top: 0px;
+    }
+
+    .task-added-message-floating {
+        bottom: 410px;
+        left: 450px;
+    }
+
+    .task-added-message-floating-board {
+        bottom: 410px;
+        left: 450px;
+    }
+
+    .close-floating-task {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1100px) {
+    .task-added-message-floating {
+        left: 410px;
+    }
+
+    .task-added-message-floating-board {
+        left: 410px;
+    }
+}
+
+@media(max-width: 1000px) {
+
+    .helper {
+        justify-content: center;
+    }
+
+    .add-task-leftside {
+        width: 300px;
+    }
+
+    .add-task-rightside {
+        width: 300px;
+    }
+
+    .add-task-priobox {
+        width: 95px;
+        font-size: 16px;
+    }
+
+    .add-task-btns {
+        width: 690px;
+    }
+
+    .task-added-message-floating {
+        left: 320px;
+    }
+
+    .task-added-message-floating-board {
+        left: 320px;
+    }
+}
+
+@media(max-width: 950px) {
+    .floating-addTask {
+        width: 600px;
+        height: 660px;
+    }
+}
+
+@media (max-width: 800px) {
+    .floating-addTask {
+        display: none;
+    }
+}
+
+@media(max-height: 900px) {
+    .floating-addTask {
+        height: 680px;
+        align-items: unset;
+    }
+
+    .helper {
+        margin-top: 20px;
+    }
+
+    .add-task-leftside {
+        height: 460px;
+    }
+
+    .add-task-vector {
+        height: 400px;
+    }
+
+    .add-task-rightside {
+        gap: 15px;
+    }
+
+    .add-task-btns {
+        margin-top: -10px;
+    }
+}
