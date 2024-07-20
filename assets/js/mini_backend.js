@@ -49,8 +49,6 @@ function loadJSONFromServerOld() {
         let serverURL = proxy + BASE_SERVER_URL + '/nocors.php?json=database&noache=' + (new Date().getTime());
 
 
-
-
         xhttp.open('GET', serverURL);
 
         xhttp.onreadystatechange = function(oEvent) {
