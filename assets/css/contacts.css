@@ -148,7 +148,7 @@ body {
     color: #2A3647;
 }
 
-.new-contact-btn {
+.new-contact-btn, .new-contact-btn-rs {
     height: 50px;
     width: 190px;
     position: absolute;
@@ -165,10 +165,14 @@ body {
     font-weight: 700;
 }
 
-.new-contact-btn:hover {
+.new-contact-btn:hover, .new-contact-btn-rs:hover {
     background: #29ABE2;
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.new-contact-btn-rs {
+    display: none;
 }
 
 .floating-contact-box {
@@ -213,7 +217,7 @@ body {
 }
 
 .floating-contact-name {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 500;
 }
 

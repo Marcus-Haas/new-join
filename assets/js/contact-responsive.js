@@ -63,7 +63,7 @@ function openBusinessCardResponsive(i) {
     document.getElementById('contactbook-main-rs').classList.add('d-none');
     document.getElementById('floating-box-rs').innerHTML = "";
     document.getElementById('floating-box-rs').innerHTML = generateBusinessCardResponsive(i);
-    document.getElementById('new-contact-btn').classList.add('d-none');
+    document.getElementById('new-contact-btn-rs').classList.add('d-none');
 }
 
 
@@ -101,7 +101,7 @@ function generateBusinessCardResponsive(i) {
 
 function closeBusinessCardResponsive() {
     document.getElementById('contactbook-main-rs').classList.remove('d-none');
-    document.getElementById('new-contact-btn').classList.remove('d-none');
+    document.getElementById('new-contact-btn-rs').classList.remove('d-none');
     renderAlphabetResponsive();
 }
 
