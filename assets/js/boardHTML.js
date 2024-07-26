@@ -156,7 +156,7 @@ function generateMiniTaskHTML(i) {
 
 function generateTaskDetailsHTML(i) {
     return /*html*/ `
-     <div class="frame-for-task-overlay">
+     <div class="frame-for-task-overlay" onclick="doNotClose(event)">
         <div class="close-task-overlay" >
             <span class="closing" onclick="closeTaskDetails()">X</span>
             <img class="board-closing-rs" src="assets/img/arrow-left-black.svg" onclick="closeTaskDetails()">
@@ -193,7 +193,7 @@ function generateTaskDetailsHTML(i) {
 
 function generateTaskDetailsHTMLPartTwo(i) {
     return /*html*/ `
-     <div class="frame-for-task-overlay">
+     <div class="frame-for-task-overlay" onclick="doNotClose(event)">
         <div class="close-task-overlay" >
             <span class="closing" onclick="closeTaskDetails()">X</span>
             <img class="board-closing-rs" src="/assets/img/arrow-left-black.svg" onclick="closeTaskDetails()">

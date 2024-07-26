@@ -79,7 +79,6 @@ body {
     position: absolute;
     top: 15px;
     right: 10px;
-    ;
 }
 
 .board-add-task-btn {
@@ -150,6 +149,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 10px;
 }
 
 .drag-and-drop-element {

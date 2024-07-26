@@ -10,6 +10,16 @@ let newStatusParameter;
 // drag and drop code by w3schools //
 function allowDrop(ev) {
     ev.preventDefault();
+    document.addEventListener("dragenter", function (event) {
+        if (event.target.className == "drag-and-drop-colums") {
+            event.target.style.backgroundColor = "#D1D1D1";
+        }
+    });
+    document.addEventListener("dragleave", function (event) {
+        if (event.target.className == "drag-and-drop-colums") {
+            event.target.style.backgroundColor = '';
+        }
+    });
 }
 
 
@@ -23,6 +33,7 @@ function drop(ev, newStatus) {
     //ev.preventDefault();
     //let data = ev.dataTransfer.getData("text");
     //ev.target.appendChild(document.getElementById(data));
+    ev.target.style.backgroundColor = '';
     allTasks[dragID]['status'] = newStatus;
     pushTasksToBackend();
     prepareRenderTasks();
