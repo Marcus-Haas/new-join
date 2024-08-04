@@ -296,6 +296,16 @@
     }
 }
 
+@media(max-height: 800px) {
+    .login-btn-frame {
+        margin-top: 40px;
+    }
+
+    .log-mainbox {
+        justify-content: center;
+    }
+}
+
 @media only screen and (max-width: 400px) and (max-height: 800px) {
     .log-mainbox {
         width: 260px;
